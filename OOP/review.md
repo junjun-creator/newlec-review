@@ -13,9 +13,9 @@
 * [x] 자바에서는 참조형식의 함수보다 객체형식의 함수를 우선으로 한다.
 ~~~
 class NewlecExam extends Exam {
-	Exam exam = new NewlecExam(); // 가능
-	NewlecExam exam = new Exam(); // 불가능
+    Exam exam = new NewlecExam(); // 가능
+    NewlecExam exam = new Exam(); // 불가능
 	
-	exam.f1(); // exam이 아닌 NewlecExam 클래스의 f1 함수를 먼저 호출한다.
+    exam.f1(); // exam이 아닌 NewlecExam 클래스의 f1 함수를 먼저 호출한다.
 }
 ~~~
