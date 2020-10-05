@@ -19,3 +19,5 @@ class NewlecExam extends Exam {
     exam.f1(); // exam이 아닌 NewlecExam 클래스의 f1 함수를 먼저 호출한다.
 }
 ~~~
+---
+* [x] Service 클래스가 Entity 클래스를 조작한다. 감싼다.
