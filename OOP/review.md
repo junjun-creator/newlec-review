@@ -11,7 +11,7 @@
   - 상속은 has a 상속 관계와 is a 상속 관계로 나뉜다.
     - has a 상속 관계는 클래스에 private 키워드(아니어도됨)로 선언된 변수들, 즉 부품들을 의미한다.
     - is a 상속 관계는 extends 키워드로 상속받은 것을 의미한다.
-  - [x] 자바에서는 참조형식의 함수보다 객체형식의 함수를 우선으로 한다.
+- [x] 자바에서는 참조형식의 함수보다 객체형식의 함수를 우선으로 한다.
 ~~~
 class NewlecExam extends Exam {
     Exam exam = new NewlecExam(); // 가능
