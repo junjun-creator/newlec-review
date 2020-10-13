@@ -18,3 +18,18 @@ public void paint(Graphics g) {
   - buf에 그림을 그리기 위해서는 도구가 필요하므로 Graphics bg 변수를 만든다. 
   - for문을 돌면서 bg라는 도구로 그림을 buf 이미지에 그려놓는다.
   - buf에 이미지가 그려져 있으므로 이를 윈도우에 넘긴다.
+
+## 이미지를 생성할 때
+- [x] 이미지를 생성할 때는 staitc 키워드를 사용하여 딱 한 번만 이미지를 생성해야 한다.
+~~~java
+private static Image img; 
+	
+// new와 상관없이 프로그램이 로드되면 제일 먼저 실행되는 블록인 전역변수 생성자를 사용하자.
+static {
+    // Toolkit은 비동기이기 때문에 사용하지 않는다.
+    try {
+            img = ImageIO.read(new File("res/boy.png"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
