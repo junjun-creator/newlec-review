@@ -32,4 +32,4 @@ static {
         } catch (IOException e) {
             e.printStackTrace();
         }
-    }
+}
