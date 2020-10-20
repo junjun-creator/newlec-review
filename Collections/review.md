@@ -21,11 +21,11 @@ Object obj = 3; // 3은 값이기 때문에 불가능하다.
     - 현재 JDK 버전에서는 Object x = 3; 하면 에러가 안난다. 왜냐하면 자동으로 박싱을 해주기 때문이다. 그래서 우리는 Object x = 3; 이런식으로 써야 한다.
     - Integer x = 3;과 int x = 3; 중에 전자가 메모리가 더 많이 먹는다. 내부적으로 new Integer(3);을 생성하므로.
 - [x] 언박싱(UnBoxing)
-
+---
 ## 컬렉션의 열거 서비스
 ```java
 while (list.hasNext()) 
     System.out.println(list.next());
 ```
-
+---
 ## 열거 서비스로 인한 쓰레드의 안전성 문제
