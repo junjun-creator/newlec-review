@@ -59,3 +59,10 @@ class NewlecExam extends Exam {
 ## 디자인 패턴
 - [x] 팩토리 메서드
   - 객체를 생성하는 부분을 자식에게 위임해서 자식이 객체를 생성하는 부분을 책임질 수 있도록 하는, 그런 방식으로 구현하는 메서드
+---
+## Dependency Injection(의존성 주입)
+- [x] DI를 하는 방법은 두 가지가 있다.
+  - setter
+    - 
+  - 생성자
+    - 예를들어 Scanner(System.in);이 있다
