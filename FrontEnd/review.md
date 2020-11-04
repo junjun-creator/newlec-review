@@ -4,6 +4,14 @@
 ## 웹이란?
 - 하이퍼텍스트로 요청하는 문서를 전달하는 서비스
 
-1. https://tomcat.apache.org/download-90.cgi 
-64-bit Windows zip (pgp, sha512) 다운로드 하고 같은 tools 경로에 넣고 bin\startup.bat 실행
-webapps/ROOT/index.jsp(디폴트)
+## HTML 3요소
+- 컨텐츠
+  - 문장 / 표 / 목록 / 폼
+- 구조
+- 스타일
+
+## 메타 데이터
+- 데이터를 위한 데이터(데이터를 설명하는 데이터)
+
+## 시맨틱 태그
+- <div id="header"></div> -> <header></header>
