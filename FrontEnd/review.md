@@ -26,3 +26,20 @@
 ## 정규표현식
 - ^01[01678]-\d{3,4}-\d{4}$ 
   - 휴대폰 번호 
+
+## CSS
+- [x] [MDN 참고 링크](https://developer.mozilla.org/ko/docs/Web/CSS/Reference)
+  -header > h1(자식 결합자)
+    - header 자식만 선택
+  - header h1(자속 결합자)
+    - header 자식 뿐만 아니라 자손까지
+  - A + B(인접 형제 결합자)
+  - A ~ B(일반 형제 결합자)
+
+- [x] 우선순위
+  - id -> 속성 지정 -> class -> 태그
+- [x] 속성을 갖고있는지 가지고 있지 않는지 판단하는 법
+  - h1[class]
+    - class 속성을 갖고 있는 h1 태그만 선택한다.
+- [x] ul에 blue, li에 red를 먹이면 콕 집은 li가 우선순위가 더 높다
+- [x] h1[lang="ko"] vs .h1 중에 왼쪽의 우선순위가 더 높다(태그가 클래스보다 우선순위가 낮지면 콕 집었기 때문에 더 높다)
