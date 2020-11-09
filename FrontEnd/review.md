@@ -29,7 +29,7 @@
 
 ## CSS
 - [x] [MDN 참고 링크](https://developer.mozilla.org/ko/docs/Web/CSS/Reference)
-  -header > h1(자식 결합자)
+  - header > h1(자식 결합자)
     - header 자식만 선택
   - header h1(자속 결합자)
     - header 자식 뿐만 아니라 자손까지
