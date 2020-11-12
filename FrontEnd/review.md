@@ -66,6 +66,46 @@
   - 부모가 min-width 또는 min-height라면 자식도 min-width, min-height를 적용해야 한다.
   - 그런데 min-height: 100%라고 하면 적용이 안된다. 십년째 해결안되는 버그이다. **min-height: inherit;** 속성을 줘야 해결할 수 있다.
 
+## background
+- [x] 꿀팁
+  - body에 배경을 깔때는 1px짜리 이미지를 background로 넣어서 repeat-y를 하면 컨텐츠의 크기가 커져도 동적으로 배경도 같이 늘어난다
+- [x] background-size
+  - contain
+    - 흘러 넘치지 않게 블록 크기에 맞게 이미지를 딱 넣어준다
+  - cover
+    - 블록 크기에 꽉 차게 이미지를 넣어준다. 흘러넘치는 것을 허용한다.
+- [x] background-attachment
+  - 블록 크기보다 컨텐츠가 길면 블록 크기를 벗어난다. 
+  - scroll
+    - 기본값
+  - fixed
+    - 홈페이지에서 스크롤할때 배경은 고정되고 컨텐츠만 움직이는 것을 구현할 때
+  - local
+    - ?
+  
+## overflow
+- [x] hidden
+  - 컨텐츠가 블록 크기보다 크면 넘어가는 부분은 숨겨진다. 아예 볼 수 없다.
+- [x] scroll
+  - 컨텐츠가 블록 크기보다 크던 작던 스크롤이 생긴다
+- [x] auto
+  - 컨텐츠가 블록 크기보다 클때만 스크롤이 생긴다.
+  
+## Pseudo(추가 예정)
+- [x] :nth-child(숫자), :first-child
+  
 ## Flex
-- 부모의 display가 flex이면 자식이 block이든 inline이든 item으로 판단한다.
-- 
+- [x] 부모의 display가 flex이면 자식이 block이든 inline이든 item으로 판단한다.
+- [x] **flex-grow**
+  - **남아있는 여백을 등분해서 배치한다.**
+  - 모든 아이템에 flex-grow: 0을 주고 그 중 하나의 아이템만 flex-grow:1을 주면 남아있는 여백을 해당 아이템이 다 가져간다.
+  - 모든 아이템에 flex-grow: 1을 주고 그 중 하나의 아이템만 flex-grow:3을 주면 3을 가진 아이템은 다른 아이템보다 여백을 3배 크게 차지한다.
+- [x] **flex-basis**
+  - 아이템들에 width를 준다. (크기를 정한다)
+  - flex-basis: 200px;
+    - 각 아이템들이 200px을 넘어갈 수 없다(max-width와 비슷하다)
+    - 크기가 줄어들 수는 있다.
+- [x] **flex-shrink**
+  - **크기가 줄어들 때 "야, 몇 번 아이템! 너가 다른애들보다 몇 배 빠르게 줄어들어라!"**
+  - 모든 아이템에 shrink: 0을 주고 그 중 하나의 아이템만 shrink: 1을 주면 크기가 줄어들 때 shrink: 1 해당 아이템만 줄어든다.
+  - 모든 아이템에 shrink: 1을 주고 그 중 하나의 아이템만 shrink: 3을 주면 크기가 줄어들 때 3을 가진 아이템은 다른 아이템보다 3배 빠르게 줄어든다.
