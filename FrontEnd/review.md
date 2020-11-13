@@ -96,16 +96,49 @@
   
 ## Flex
 - [x] 부모의 display가 flex이면 자식이 block이든 inline이든 item으로 판단한다.
+
+- [x] **flex-basis**
+  - 아이템들에 max-width, max-height를 준다. flex가 수평이면 width, 수직이면 height을 의미한다.
+  - main 축을 의미한다. flex-direction: column;일 경우 main축은 수직방향이다.
+  - flex-basis: 200px;
+    - 각 아이템들이 200px을 넘어갈 수 없다(max-width와 비슷하다)
+    - 크기가 줄어들 수는 있다.
+    
 - [x] **flex-grow**
   - **남아있는 여백을 등분해서 배치한다.**
   - 모든 아이템에 flex-grow: 0을 주고 그 중 하나의 아이템만 flex-grow:1을 주면 남아있는 여백을 해당 아이템이 다 가져간다.
   - 모든 아이템에 flex-grow: 1을 주고 그 중 하나의 아이템만 flex-grow:3을 주면 3을 가진 아이템은 다른 아이템보다 여백을 3배 크게 차지한다.
-- [x] **flex-basis**
-  - 아이템들에 width를 준다. (크기를 정한다)
-  - flex-basis: 200px;
-    - 각 아이템들이 200px을 넘어갈 수 없다(max-width와 비슷하다)
-    - 크기가 줄어들 수는 있다.
+  
 - [x] **flex-shrink**
   - **크기가 줄어들 때 "야, 몇 번 아이템! 너가 다른애들보다 몇 배 빠르게 줄어들어라!"**
+  -모든 아이템에 shrink: 0을 주면 아예 줄어들지 않는다. 크기가 고정된다.
   - 모든 아이템에 shrink: 0을 주고 그 중 하나의 아이템만 shrink: 1을 주면 크기가 줄어들 때 shrink: 1 해당 아이템만 줄어든다.
   - 모든 아이템에 shrink: 1을 주고 그 중 하나의 아이템만 shrink: 3을 주면 크기가 줄어들 때 3을 가진 아이템은 다른 아이템보다 3배 빠르게 줄어든다.
+  
+- [x] **flex-wrap**
+  - 컨테이너에 flex-wrap: wrap;을 주면 수평 방향일 때 아래쪽으로 내려간다.
+  - 그런데, 수직 방향일 때 flex-wrap: wrap;을 주면 먹히지 않는다. 먹히게 하기 위해서 컨테이너에 높이를 지정해줘야 한다.
+  - wrap-reverse; 속성도 존재한다.
+  
+- [x] **order**
+  - 어떤 아이템에 order: -1을 주면 해당 아이템이 가장 우선이 되어서 맨 앞으로 간다.
+  - 보통 아이템이 갖고 있는 order 값은 0이다.
+  
+## Flex의 축약 표현(Flex는 여러 가지로 표현할 수 있다)
+- [x] 아래 세 문장은 flex: 0 0 100px;로 표현이 가능하다. 순서를 꼭 지키자.
+  - flex-grow: 0;
+  - flex-shrink: 0;
+  - flex-basis: 100px;
+- [x] 만약 flex: 100px;를 하면 flex: 1 1 100px;를 의미한다. grow, shrink를 자동으로 채워준다.
+- [x] flex: 1; 이것은 grow: 1, shrink: 1, basis: 0%를 의미한다.
+- [x] 자주 쓰는 값들의 조합(잘 쓰이진 않지만, 다른 사람들이 이렇게 작성했을 경우 이해할 수 있어야 한다)
+  - flex: 0 0 auto;
+    - flex: none;
+  - flex: 1 1 auto;
+    - flex: auto;
+  - flex: 0 1 auto;
+    - flex: initial;
+  - flex: 1 1 100px;
+    - flex: ;
+    
+## 
