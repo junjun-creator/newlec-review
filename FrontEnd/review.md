@@ -126,7 +126,7 @@
   
 - [x] **flex-flow**
   - Flex의 Line을 결정한다. 컨테이너에 적용한다.
-  - flex-flow: <flex-direction> || <flex-wrap>
+  - flex-flow: "flex-direction" || "flex-wrap"
     - 기본값은 flex-flow: row nowrap;
   
 ## Flex의 축약 표현(Flex는 여러 가지로 표현할 수 있다)
@@ -144,11 +144,10 @@
   - flex: 0 1 auto;
     - flex: initial;
   - flex: 1 1 100px;
-    - flex: ;
+    - flex: ?
     
 ## Flex의 정렬 방법
-- [x] 
-  - Main 축은 justify-content
+  - [x] Main 축은 justify-content
     - flex-start
     - flex-end
     - center
@@ -159,7 +158,7 @@
     - space-evenly (반응형에서 많이 사용)
       - 완전 여백이 동일
     
-  - Cross 축은 align-items
+  - [x] Cross 축은 align-items
     - 높이가 100%가 아니라 여분이 있을 경우
     - stertch (기본값) 
       - 아이템들이 박스의 높이를 따라간다
