@@ -124,6 +124,11 @@
   - 어떤 아이템에 order: -1을 주면 해당 아이템이 가장 우선이 되어서 맨 앞으로 간다.
   - 보통 아이템이 갖고 있는 order 값은 0이다.
   
+- [x] **flex-flow**
+  - Flex의 Line을 결정한다. 컨테이너에 적용한다.
+  - flex-flow: <flex-direction> || <flex-wrap>
+    - 기본값은 flex-flow: row nowrap;
+  
 ## Flex의 축약 표현(Flex는 여러 가지로 표현할 수 있다)
 - [x] 아래 세 문장은 flex: 0 0 100px;로 표현이 가능하다. 순서를 꼭 지키자.
   - flex-grow: 0;
@@ -141,4 +146,26 @@
   - flex: 1 1 100px;
     - flex: ;
     
-## 
+## Flex의 정렬 방법
+- [x] 
+  - Main 축은 justify-content
+    - flex-start
+    - flex-end
+    - center
+    - space-between
+      - 끝 여백이 없고 중간 여백은 
+    - space-around
+      - 끝 여백이 다르고 중간 여백은 동일
+    - space-evenly (반응형에서 많이 사용)
+      - 완전 여백이 동일
+    
+  - Cross 축은 align-items
+    - 높이가 100%가 아니라 여분이 있을 경우
+    - stertch (기본값) 
+      - 아이템들이 박스의 높이를 따라간다
+    - flex-start
+      - 아이템들이 박스의 높이를 따라가지 않고 해당 컨텐트의 높이를 따라간다. 그리고 박스 위쪽에 붙는다.
+    - flex-end
+      - 아이템들이 박스의 높이를 따라가지 않고 해당 컨텐트의 높이를 따라간다. 그리고 박스 아래쪽에 붙는다.
+    - center
+      - 아이템들이 컨텐트의 높이를 따르고 가운데 수직 정렬한다.
