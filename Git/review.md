@@ -7,7 +7,10 @@
   - git log -n 2 --oneline
     - 커밋 내역 중 가장 최근 2개만 확인한다.
   - git log [오래된 커밋의 주소 7자리]..[최근 커밋의 주소 7자리] --oneline
-  
+  - git log --graph --oneline
+    - 현재 있는 브랜치의 커밋 내역 그래프를 확인할 수 있다
+  - got log --graph --oneline --all
+    - 모든 브랜치의 커밋 내역 그래프를 확인할 수 있다.
 - [x] git diff
   - add를 하기전에 확인 가능
   - stage에 올라간 상태에서는 diff를 확인할 수 없다.
@@ -30,3 +33,12 @@
 - [x] git reset
   - 과거 커밋 버전으로 돌아간다.
   - 돌아간 버전 이후로는 삭제된다.
+  
+- [x] git branch
+  -  git branch -c main ver2
+    - main 브랜치를 복사하여 ver2 브랜치를 만든다.
+    - 무조건 main 브랜치를 커밋한 이후에 브랜치를 만들어야 한다.
+  - git checkout ver2
+    - ver2 브랜치로 이동한다.
+  - git checkout -b ver2
+    - ver2 브랜치를 만들고 이동까지 한다.
