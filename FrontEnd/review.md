@@ -100,9 +100,11 @@
 - [x] **flex-basis**
   - 아이템들에 max-width, max-height를 준다. flex가 수평이면 width, 수직이면 height을 의미한다.
   - main 축을 의미한다. flex-direction: column;일 경우 main축은 수직방향이다.
+  - **flex-basis는 width, height보다 우선순위가 높다.**
   - flex-basis: 200px;
     - 각 아이템들이 200px을 넘어갈 수 없다(max-width와 비슷하다)
     - 크기가 줄어들 수는 있다.
+  - flex-basis: 0; 이면 컨텐트 크기만큼만 갖는다.
     
 - [x] **flex-grow**
   - **남아있는 여백을 등분해서 배치한다.**
@@ -124,18 +126,16 @@
   - 어떤 아이템에 order: -1을 주면 해당 아이템이 가장 우선이 되어서 맨 앞으로 간다.
   - 보통 아이템이 갖고 있는 order 값은 0이다.
   
-- [x] **flex-flow**
-  - Flex의 Line을 결정한다. 컨테이너에 적용한다.
-  - flex-flow: "flex-direction" || "flex-wrap"
-    - 기본값은 flex-flow: row nowrap;
-  
 ## Flex의 축약 표현(Flex는 여러 가지로 표현할 수 있다)
 - [x] 아래 세 문장은 flex: 0 0 100px;로 표현이 가능하다. 순서를 꼭 지키자.
   - flex-grow: 0;
   - flex-shrink: 0;
   - flex-basis: 100px;
+  
 - [x] 만약 flex: 100px;를 하면 flex: 1 1 100px;를 의미한다. grow, shrink를 자동으로 채워준다.
+
 - [x] flex: 1; 이것은 grow: 1, shrink: 1, basis: 0%를 의미한다.
+
 - [x] 자주 쓰는 값들의 조합(잘 쓰이진 않지만, 다른 사람들이 이렇게 작성했을 경우 이해할 수 있어야 한다)
   - flex: 0 0 auto;
     - flex: none;
@@ -146,25 +146,50 @@
   - flex: 1 1 100px;
     - flex: ?
     
-## Flex의 정렬 방법
-  - [x] Main 축은 justify-content
-    - flex-start
-    - flex-end
-    - center
-    - space-between
-      - 끝 여백이 없고 중간 여백은 
-    - space-around
-      - 끝 여백이 다르고 중간 여백은 동일
-    - space-evenly (반응형에서 많이 사용)
-      - 완전 여백이 동일
+- [x] **flex-flow**
+  - Flex의 Line을 결정한다. 컨테이너에 적용한다.
+  - flex-flow: "flex-direction" || "flex-wrap"
+    - 기본값은 flex-flow: row nowrap;
     
-  - [x] Cross 축은 align-items
-    - 높이가 100%가 아니라 여분이 있을 경우
-    - stertch (기본값) 
-      - 아이템들이 박스의 높이를 따라간다
-    - flex-start
-      - 아이템들이 박스의 높이를 따라가지 않고 해당 컨텐트의 높이를 따라간다. 그리고 박스 위쪽에 붙는다.
-    - flex-end
-      - 아이템들이 박스의 높이를 따라가지 않고 해당 컨텐트의 높이를 따라간다. 그리고 박스 아래쪽에 붙는다.
-    - center
-      - 아이템들이 컨텐트의 높이를 따르고 가운데 수직 정렬한다.
+## Flex의 정렬 방법
+- [x] Main 축은 justify-content
+  - flex-start
+  - flex-end
+  - center
+  - space-between
+    - 끝 여백이 없고 중간 여백은 
+  - space-around
+    - 끝 여백이 다르고 중간 여백은 동일
+  - space-evenly (반응형에서 많이 사용)
+    - 완전 여백이 동일
+    - margin: auto를 통해 나머지 여백을 활용 가능
+    
+- [x] Cross 축은 align-items
+  - flex lines마다 정렬을 한다.
+  - 높이가 100%가 아니라 여분이 있을 경우
+  - stertch (기본값) 
+    - 아이템들이 박스의 높이를 따라간다
+  - flex-start
+    - 아이템들이 박스의 높이를 따라가지 않고 해당 컨텐트의 높이를 따라간다. 그리고 박스 위쪽에 붙는다.
+  - flex-end
+    - 아이템들이 박스의 높이를 따라가지 않고 해당 컨텐트의 높이를 따라간다. 그리고 박스 아래쪽에 붙는다.
+  - center
+    - 아이템들이 컨텐트의 높이를 따르고 가운데 수직 정렬한다.
+      
+- [x] align-content
+  - flex line을 무시하고 패킹해버린다
+    
+- [x] align-self
+  - 컨테이너가 아닌 아이템에 속성을 부여한다. 해당 아이템만 적용되는 정렬 기법이다.
+
+## 컨텐트 블록 꾸미기
+- [x] inline-block
+
+## 폰트(Font)
+- [x] font-family
+  - 여러 개를 콤마로 구분해서 사용가능. 우선순위임
+  - 
+- [x] font-size
+- [x] font-style
+- [x] font-weight
+- [x] color
