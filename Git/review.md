@@ -38,7 +38,25 @@
   -  git branch -c main ver2
     - main 브랜치를 복사하여 ver2 브랜치를 만든다.
     - 무조건 main 브랜치를 커밋한 이후에 브랜치를 만들어야 한다.
+    
+- [x] git checkout
   - git checkout ver2
     - ver2 브랜치로 이동한다.
   - git checkout -b ver2
     - ver2 브랜치를 만들고 이동까지 한다.
+  - 브랜치를 왔다갔다 할 수 있다. 하지만 그러한 용도로 쓰는게 아니라 버전을 왔다갔다 하면서 과거 커밋으로 돌아가거나 돌아오는 등의 역할을 한다.
+  
+- [x] git switch
+  - 브랜치를 왔다갔다 하는 용도
+    
+- [x] 과거의 커밋내용으로 돌아가는 방법 및 되돌아오는 방법
+  - **git checkout [7자리주소]**
+    - 7자리 주소가 커밋됐을 당시로 되돌아간다.
+  - git checkout master
+    - 과거에서 다시 현재로 돌아온다.
+  - git checkout [7자리주소] <파일명>
+    - 7자리 주소가 커밋됐을 당시로 지정한 '파일'만 돌아간다.
+    - 이후 git status를 modifyed 되었다고 표시된다. 그래서 커밋만 하면 된다.
+    
+- [x] git swtich
+  - 브랜치를 이동한다.
