@@ -193,3 +193,17 @@
 - [x] font-style
 - [x] font-weight
 - [x] color
+
+## 텍스트 위치에 따라 이미지를 수직 정렬하는 방법
+- [x] vertical-align
+  - 텍스트 옆에 이미지가 있으면 이미지와 텍스트 배치가 맞지 않아 보인다.
+  - 이를 해결하기 위해 이미지 부분에 vertical-align을 사용하면 된다. **텍스트에다 적용하는 것이 아니다.**
+
+## 글자를 박스 가운데 수직 정렬하는 방법(한 줄일 경우)
+- [x] line-height를 부모 박스의 높이와 똑같이 하면 된다.
+
+## 포지셔닝
+- [x] position: absolute;
+  - 자동 조절되는 위치
+- [x] position: relative;
+  - 얘의 위치에 따라 absolute 위치가 결정된다.
