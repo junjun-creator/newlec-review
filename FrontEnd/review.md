@@ -207,3 +207,14 @@
   - 자동 조절되는 위치
 - [x] position: relative;
   - 얘의 위치에 따라 absolute 위치가 결정된다.
+  
+## Table 
+- [x] tr에는 border가 먹히지 않는다.
+- [x] table 태그에 border-collapse: collapse; 속성을 주면 왼쪽 방과 오른쪽 방이 뭉개진다.
+  - 디폴트는 border-collapse: seperate;
+- [x] border-spacing: <length> <length>
+  - 테이블에서만 사용하는 margin 기능 
+- [x] table-layout: fixed
+  - 테이블의 기본적인 레이아웃 방식은 **컨텐츠가 커지면 td도 같이 늘어난다.** 이를 방지하기 위함
+  - 컨텐츠가 커지면 td의 너비는 고정되고 컨텐츠가 밖으로 나간다.
+  - <table>에 적용시켜야 한다.
