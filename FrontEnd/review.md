@@ -218,3 +218,20 @@
   - 테이블의 기본적인 레이아웃 방식은 **컨텐츠가 커지면 td도 같이 늘어난다.** 이를 방지하기 위함
   - 컨텐츠가 커지면 td의 너비는 고정되고 컨텐츠가 밖으로 나간다.
   - <table>에 적용시켜야 한다.
+
+## transition, transform
+```css
+.box {
+    width: 200px;
+    height: 100px;
+    background: blue;
+    transition: transform 1s, border-radius 5s; /* transform은 1초, border-radius는 5초에 걸쳐 변경된다 */
+}
+
+.box:hover {
+    border-radius: 20px;
+    transform: rotate(90deg);
+    transform-origin: right top; /* 회전축을 가운데가 아닌 오른쪽 상단으로 변경 */
+}
+
+```
