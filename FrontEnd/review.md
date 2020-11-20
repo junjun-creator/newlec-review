@@ -217,9 +217,12 @@
 - [x] table-layout: fixed
   - 테이블의 기본적인 레이아웃 방식은 **컨텐츠가 커지면 td도 같이 늘어난다.** 이를 방지하기 위함
   - 컨텐츠가 커지면 td의 너비는 고정되고 컨텐츠가 밖으로 나간다.
-  - <table>에 적용시켜야 한다.
-
-## transition, transform
+  - table 태그에 적용시켜야 한다.
+  
+## transition, transform, translate
+- [x] transition은 부여한 시간 동안 천천히 움직이게 한다.
+- [x] tranform은 rotate 등 속성이 있다.
+- [x] translate는 포지셔닝을 하지않고 아이템들이 x, y방향으로 움직일 수 있도록 한다.
 ```css
 .box {
     width: 200px;
@@ -233,5 +236,4 @@
     transform: rotate(90deg);
     transform-origin: right top; /* 회전축을 가운데가 아닌 오른쪽 상단으로 변경 */
 }
-
 ```
