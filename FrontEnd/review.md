@@ -101,10 +101,11 @@
   - 아이템들에 max-width, max-height를 준다. flex가 수평이면 width, 수직이면 height을 의미한다.
   - main 축을 의미한다. flex-direction: column;일 경우 main축은 수직방향이다.
   - **flex-basis는 width, height보다 우선순위가 높다.**
-  - flex-basis: 200px;
-    - 각 아이템들이 200px을 넘어갈 수 없다(max-width와 비슷하다)
-    - 크기가 줄어들 수는 있다.
-  - flex-basis: 0; 이면 컨텐트 크기만큼만 갖는다.
+  - 컨테이너가 아닌 아이템들에 속성을 부여한다.
+    - flex-basis: 200px;
+      - 각 아이템들이 200px을 넘어갈 수 없다(max-width와 비슷하다)
+      - 크기가 줄어들 수는 있다.
+    - flex-basis: 0; 이면 컨텐트 크기만큼만 갖는다.
     
 - [x] **flex-grow**
   - **남아있는 여백을 등분해서 배치한다.**
@@ -118,8 +119,8 @@
   - 모든 아이템에 shrink: 1을 주고 그 중 하나의 아이템만 shrink: 3을 주면 크기가 줄어들 때 3을 가진 아이템은 다른 아이템보다 3배 빠르게 줄어든다.
   
 - [x] **flex-wrap**
-  - 컨테이너에 flex-wrap: wrap;을 주면 수평 방향일 때 아래쪽으로 내려간다.
-  - 그런데, 수직 방향일 때 flex-wrap: wrap;을 주면 먹히지 않는다. 먹히게 하기 위해서 컨테이너에 높이를 지정해줘야 한다.
+  - 컨테이너에 flex-wrap: wrap;을 주고 main 축이 수평방향일 때, 컨텐트의 크기가 컨테이너의 크기보다 커져버리면 넘어가는 부분이 아래쪽으로 내려간다. 
+  - 그런데 수직 방향일 때 flex-wrap: wrap;을 주면 먹히지 않는다. 먹히게 하기 위해서 컨테이너에 높이를 지정해줘야 한다.
   - wrap-reverse; 속성도 존재한다.
   
 - [x] **order**
@@ -147,9 +148,10 @@
     - flex: ?
     
 - [x] **flex-flow**
-  - Flex의 Line을 결정한다. 컨테이너에 적용한다.
-  - flex-flow: "flex-direction" || "flex-wrap"
+  - flex-direction, flex-wrap의 축약형이다.
+    - flex-flow: "flex-direction" || "flex-wrap"
     - 기본값은 flex-flow: row nowrap;
+  - Flex의 Line을 결정한다. 컨테이너에 적용한다.
     
 ## Flex의 정렬 방법
 - [x] Main 축은 justify-content
@@ -184,11 +186,12 @@
 
 ## 컨텐트 블록 꾸미기
 - [x] inline-block
+  - block 속성을 컨텐트가 갖고 있는 크기 만큼으로 변경한다.
+  - 한 줄에 여러 개의 block 속성을 쓸 수 있다.
 
 ## 폰트(Font)
 - [x] font-family
   - 여러 개를 콤마로 구분해서 사용가능. 우선순위임
-  - 
 - [x] font-size
 - [x] font-style
 - [x] font-weight
