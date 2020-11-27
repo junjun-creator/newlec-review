@@ -85,5 +85,12 @@ var 변수 = function() {
 ## 클로저(Closure) - 녹화 참고
 - [x] 클로저는 함수가 대상이다.
 
-## fff
-- 
+## setTimeout, setInterval, setClear
+- setTimeout은
+
+## opener, open
+- html에서 open을 통해 동적으로 링크를 연결할 수 있다.
+- 링크를 여는 부모 입장은 opener가 된다. 그래서 자식 입장에서 opener.document.getElement~ 메서드를 사용하여 조작할 수 있다.
+
+## Inner Frame
+- 문서를 고립화하기 위해 사용하는 영역
