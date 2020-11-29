@@ -82,3 +82,6 @@
     2. dev 입장에서 master 브랜치를 병합하는 것이 아니라 master 브랜치에서 dev 브랜치를 병합하는 것.
   - master에서 dev 브랜치를 병합하면 HEAD가 동일한 부분을 가리킨다. dev의 끝부분을.
     - 이를 Fast-Forward 방식으로 병합했다고 한다.
+
+- [x] git push -f origin main
+  - 과거 커밋내역으로 덮어씌우기
