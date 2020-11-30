@@ -94,3 +94,8 @@ var 변수 = function() {
 
 ## Inner Frame
 - 문서를 고립화하기 위해 사용하는 영역
+- InnerFrame 바깥은 parent로 칭한다.
+
+## Node
+- [x] childNodes
+  - 텍스트까지 포함한다.
