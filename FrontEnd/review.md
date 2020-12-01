@@ -207,9 +207,15 @@
 
 ## 포지셔닝
 - [x] position: absolute;
-  - 자동 조절되는 위치
+  - relative가 부모에 적용되면 부모기준으로, 부모가 relative가 아니면 전체화면 기준
 - [x] position: relative;
   - 얘의 위치에 따라 absolute 위치가 결정된다.
+- [x] position: static;
+  - 고정값이므로 left, top 등 적용이 되지 않음
+- [x] position: fixed;
+  - 헤더를 고정할 때 많이 사용하는데 컨텐츠를 가림
+- [x] position: sticky;
+  - fixed가 컨텐츠를 가리는 문제를 해결하기 위해 
   
 ## Table 
 - [x] tr에는 border가 먹히지 않는다.
@@ -240,3 +246,8 @@
     transform-origin: right top; /* 회전축을 가운데가 아닌 오른쪽 상단으로 변경 */
 }
 ```
+## object-fit
+- [x] 새로 나온 css 문법
+- object-fit: fill;
+  - 이미지를 부모 컨테이너에 꽉 채우기(이미지가 늘어지는것을 감안하고)
+- 
