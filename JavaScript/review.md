@@ -99,3 +99,9 @@ var 변수 = function() {
 ## Node
 - [x] childNodes
   - 텍스트까지 포함한다.
+
+## 노드 생성, 삭제, 교체
+- [x] 생성
+append는 appendChild와 다르게 생성까지해주면서 부모에 꽂아준다.
+- [x] 삭제
+- [x] 교체
