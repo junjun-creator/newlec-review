@@ -86,7 +86,9 @@ var 변수 = function() {
 - [x] 클로저는 함수가 대상이다.
 
 ## setTimeout, setInterval, setClear
-- setTimeout은
+- setTimeout은 사용자가 ms 단위로 설정한 초를 기준으로 딱 한 번만 실행하는 함수이다.
+- setInterval은 사용자가 ms 단위로 설정한 초를 기준으로 반복 실행하는 함수이다.
+- clearInterval은 setInterval로부터 timer id값을 받아 이를 종료시키면 interval을 종료시킬 수 있는 함수이다.
 
 ## opener, open
 - html에서 open을 통해 동적으로 링크를 연결할 수 있다.
@@ -98,10 +100,15 @@ var 변수 = function() {
 
 ## Node
 - [x] childNodes
-  - 텍스트까지 포함한다.
+  - 텍스트까지 포함한다. 그래서 childNodes보다는 엘리먼트만 가리키는 children을 사용하는 것이 좋다.
 
 ## 노드 생성, 삭제, 교체
 - [x] 생성
-append는 appendChild와 다르게 생성까지해주면서 부모에 꽂아준다.
+  - append는 appendChild와 다르게 생성까지해주면서 부모에 꽂아준다.
 - [x] 삭제
+  - removeChild
+  - remove
 - [x] 교체
+  - replaceChild
+  - replaceWith
+    - 둘다 엘리먼트를 바꾸는게 아니라 덮어씌우는 것이다.
