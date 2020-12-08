@@ -29,6 +29,10 @@
   - 하나의 속성에 두 개 이상의 값이 들어가냐? -> 들어가면 제1 정규화 필요
     - 하나의 컬럼(속성)에는 하나의 값(단일 값)을 갖도록 하는 과정
   - (erwin)분리되는 테이블은 자식으로
+
+- [x] 2정규화
+  - 
+
 - [x] 3정규화
   - primary key가 아닌 속성들 중에서 중복이 일어날 수도 있는 것을 분리하는 과정
   - 속성에 새것이 아닌 또 올드버전이 들어와 있는가
@@ -40,3 +44,29 @@
   - 특정 키로부터 얻어낼 수 있는 속성
 - [x] 이행적 함수 종속이란?
   - 다른 테이블의 키에 종속되어 있는 속성
+
+
+## 제약조건
+- 제약을 거는 이유는 무결성한 DB를 이용하기 위함이다.
+- **도메인, 엔티티, 릴레이션** 제약조건으로 나뉜다.
+- [x] 도메인
+  - 테이블을 CREATE할 때 제약을 걸어준다.
+  - NOT NULL은 꼭 채워야 한다.
+  - 조회수, 등록일자같은 사용자가 입력하지 않지만 꼭 필요한 것들은 DEFAULT 제약조건을 사용한다. DEFAULT를 사용할 때는 NOT NULL을 사용하지 않는다.
+    - 등록일자는 기본값으로 SYSTIMESTAMP를 적어준다.
+  - CHECK조건은 양수, 음수, 패턴 등
+
+- [x] 엔티티
+  - PRIMARY KEY
+    - CONSTRAINT NOTICE_ID_PK PRIMARY KEY(ID),
+    - NOT NULL + UNIQUE = PRIMARY KEY
+
+## 날짜 함수
+- 현재 날짜를 뽑아낼 때는 SYSDATE 함수를 사용한다. 
+  - SELECT SYSDATE FROM DUAL; -> 20/12/08(디폴트 값)
+- 시, 분, 초까지 뽑아낼 때는 SYSTIMESTAMP 함수를 사용한다.
+  - SELECT SYSTIMESTAMP FROM DUAL; -> 20/12/08(디폴트 값)
+  
+## 자동으로 ID AUTO_INCREMENT 방법
+- SELECT EVENT_ID_SEQ.NEXTVAL FROM DUAL;
+  - EVENT_ID_SEQ는 시퀀스이다.
