@@ -5,9 +5,6 @@
 - m:n은 무조건 사이에 엔티티가 들어간다
 - 대시 관계는 비식별관계, 실선은 식별관계
 
-
-
-
 ## 선 바꾸기
 - Model - Model Properties - Notation
   - Logical/Physical 둘다 IE로 바꿔주기
@@ -97,5 +94,54 @@
     - MEMBER 테이블에서 '수'로 시작하는 두 글자의 이름을 뽑는다.
   - SELECT * FROM MEMBER WHERE NAME LIKE '%수%';
     - MEMBER 테이블에서 '수'가 포함되는 이름을 뽑는다.
+
+## 정규표현식
+- [x] REGEXP_LIKE
+  - WHERE REGEXP_LIKE(컬럼명, 
   - 여자 주민등록번호를 뽑을 때
-    - LIKE를 안쓰고도 \d{6}-[24]\d{6}
+    - SELECT * FROM MEMBER WHERE REGEXP_LIKE(BIRTHDAY, '^\d{6}-[24]\d{6}$');
+  - 1980년대 5,7,9월생
+    - SELECT * FROM MEMBER WHERE REGEXP_LIKE(BIRTHDAY, '^198\d-0[579]-\d{2}$');
+- [x] REGEXP_REPLACE
+  - 오라클 내장함수가 이 함수를 대체할 수 있다.
+- [x] REGEXP_INSTR
+  - 오라클 내장함수가 이 함수를 대체할 수 있다.
+- [x] REGEXP_SUBSTR
+  - 오라클 내장함수가 이 함수를 대체할 수 있다.
+
+## ROWNUM 그리고 행 제한하기
+- SELECT ROWNUM, * FROM MEMBER;
+  - 이건 에러가 난다. * 은 모든 것을 의미하는데 ROWNUM을 같이 뽑으려고 하면 모든 것을 뽑는다는 것에 ROWNUM 때문에 위반이 된다.
+- [x] ROWNUM의 맹점
+  - SELECT ROWNUM, MEMBER.* FROM MEMBER WHERE ROWNUM **BETWEEN 1 AND 5**;
+    - 이건 잘 나온다.
+  - SELECT ROWNUM, MEMBER.* FROM MEMBER WHERE ROWNUM **BETWEEN 6 AND 10**;
+    - 아무것도 출력이 되지 않는다.
+    - ROWNUM은 FROM절이 아니라 WHERE절이 끝난 ROWNUM이 부여가 된다.
+  - 서브쿼리로 해결하기
+    - SELECT * FROM (SELECT ROWNUM NUM, MEMBER.* FROM MEMBER) WHERE NUM BETWEEN 1 AND 5;
+      - NUM 별칭을 만든 이유는 바깥 SELECT문에서 ROWNUM을 사용하면 서브쿼리의 ROWNUM을 사용하는 것이 아니라 자기 자신의 ROWNUM을 사용하기 때문이다.
+  
+## SELECT절의 작성 및 실행 순서
+- [x] 작성 순서
+  - SELECT -> FROM -> WHERE -> GROUP BY -> HAVING -> ORDER BY
+- [x] 실행 순서
+  - FROM -> WHERE -> GROUP BY -> HAVING -> SELECT -> ORDER BY
+## DISTINCT
+- [x] 중복된 값을 제거한다.
+  - SELECT DISTINCT HIT FROM NOTICE;
+    - 중복된 조회수를 제거하고 추출한다.
+    
+## 집계함수(sum, min, max, count, avg)
+- [x] SELECT COUNT(EMAIL) FROM MEMBER;
+  - null이 있는 컬럼은 카운트하지 않는다.
+  - count(\*)보다는 count(ID)로 검색하는 것이 낫다.
+- [x] GROUP BY
+- [x] HAVING
+  - 집계가 끝난 이후 조건 검사를 하는 WHERE절이라 생각하자.
+  
+## 부조회(서브쿼리)
+- [x] 작성 순서, 실행 순서가 있는데 이를 바꿀 때 사용한다.
+  1. WHERE절에 들어가야 하는 서브쿼리 : 비교할 때(평균과 같은 것, 조회수 최대값과 같은 것, 글을 작성한 적이 있는 사람 등
+  2. FROM : 컬럼이 추가되어야 하는 집합
+  3. SELECT : 반복되는 레코드마다의 값으로 비교해서 얻어야 하는 것
