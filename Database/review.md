@@ -70,3 +70,32 @@
 ## 자동으로 ID AUTO_INCREMENT 방법
 - SELECT EVENT_ID_SEQ.NEXTVAL FROM DUAL;
   - EVENT_ID_SEQ는 시퀀스이다.
+
+
+## 산술연산자
+- SELECT HIT + 1 FROM NOTICE;
+- 문자에 숫자를 더하면 'invalid number' 에러가 난다
+
+## 문자열 더하기 연산자
+- || : 숫자를 문자열로 변환해서 더한다.
+- + : 문자열을 숫자로 변환해서 더한다.
+
+## 비교연산자
+- [x] =, !=, ^=, <>, >, <, >=, <=, IS NULL, IS NOT NULL
+  - !=, ^=, <> 모두 같지 않다는 의미이다. 
+  - ANSI라는 기구에서 표준 SQL을 만들었는데 <>를 표준으로 사용하지만, 우리는 !=를 사용해야 한다. 역사적으로 깊기에.
+  - 비교 연산자는 **WHERE 절**에서 사용한다.
+
+## 관계연산자
+- [x] NOT, AND, OR, BETWEEN, IN
+
+## 패턴연산자
+- [x] LIKE, %, _
+  - SELECT * FROM MEMBER WHERE NAME LIKE '수%';
+    - MEMBER 테이블에서 '수'로 시작하는 이름을 뽑는다. 글자 수의 제한은 없다.
+  - SELECT * FROM MEMBER WHERE NAME LIKE '수_';
+    - MEMBER 테이블에서 '수'로 시작하는 두 글자의 이름을 뽑는다.
+  - SELECT * FROM MEMBER WHERE NAME LIKE '%수%';
+    - MEMBER 테이블에서 '수'가 포함되는 이름을 뽑는다.
+  - 여자 주민등록번호를 뽑을 때
+    - LIKE를 안쓰고도 \d{6}-[24]\d{6}
