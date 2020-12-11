@@ -138,6 +138,7 @@
   - count(\*)보다는 count(ID)로 검색하는 것이 낫다.
 - [x] GROUP BY
   - SELECT를 여러 개 쓰면 GROUP BY에도 동일하게 적어줘야 한다.
+  - **CLOB 자료형은 데이터가 너무 커서 GROUP BY를 할 수 없다.**
 - [x] HAVING
   - 집계가 끝난 이후 조건 검사를 하는 WHERE절이라 생각하자.
   
@@ -167,3 +168,19 @@
 - [x] LEFT/RIGHT/FULL JOIN(OUTER JOIN)
   - 아우터조인은 이너조인을 포함하면서 left/right/full을 할 수 있다.
   - 주인공 쪽에는 아우터를 꼭 쓴다.
+
+## VIEW
+- [x] 합쳐놓은 테이블이 있는 것처럼 읽기 전용인 가상의 테이블
+  - **테이블을 합치는 작업에서 WHERE, ORDER BY는 넣을 수 없다**
+  
+  
+## UNION
+- [x] UNION
+  - 같은 것을 합치면 하나는 사라진다.
+- [x] UNION ALL
+  - 같은 것이어도 사라지지 않고 합친다.
+- [x] MINUS(여집합)
+  - UNION을 했을 때와 반대의 결과이다.
+  - 같은 것은 사라지고 다른 것만 출력된다. (첫 번째꺼가 기준임)
+- [x] INTERSECT(교집합)
+  - 같은 것만 출력한다.
