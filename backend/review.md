@@ -26,3 +26,21 @@
   - 서블릿은 서블릿을 호출할 수 있다.
   - request.getRequestDispatcher("/admin/board/notice/detail.jsp").forward(request, response);
     - 위의 코드는 com.newlecture.web.controller.admin.notice에 있는 서블릿이 admin/board/notice/detail.jsp에게 request, response에 담긴 정보를 넘기는 것이다.
+
+## DAO
+- [x] 파일을 사용하는 파일 서비스라고 생각하자. 파일에서 데이터를 가져다 쓸 수 있게 해주는 것이라 생각하자. 
+- [x] **DAO는 CRUD만 사용한다. open(int id), hitUp(int id)와 같은 메서드는 DAO로 넘기는 것이 아니라 서비스에서 직접 처리를 해야 한다.** 
+  - **서비스는 업무! DAO는 CRUD!**
+- [x] update는 전체 컬럼을 대상으로 업데이트를 한다.
+  - 만약 hitUp(int id), open(int id)를 업데이트 한다면 각각 업데이트를 하는 것이 아니다.
+- [x] DAO를 사용하는 이유
+  1. 협업
+  2. 재사용
+  3. 데이터(소스)를 숨기는 것
+
+## Service
+- [x] 서비스쪽은 sql을 모른다. 그래서 DAO쪽에 데이터를 달라고 요청해야 한다.
+
+## 데이터 딕셔너리
+- [x] 오라클의 데이터를 보관하는 창고
+  - 우리가 직접 사용하지 않는다.
