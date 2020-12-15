@@ -69,4 +69,4 @@
     - request.getParameter로는 불가능하고 request.getPart("name") 또는 request.getParts()로 받아올 수 있다. 둘의 차이는 단일 파일, 다중 파일이다.
   - [x] 업로드한 파일을 저장하는 방법
     - 상대경로에 저장해야 한다. 근데 자바에서는 한 번에 상대적인 경로에 저장할 수 있는 메서드가 없다. 그래서 물리경로를 알아야 하는데 이를 알기 위해서 원하는 request.getServletContext().getRealPath("상대경로");를 넣어주면 물리경로를 String 자료형으로 뽑아낼 수 있다.
-    - 
+    - 파일경로 구분자는 윈도우는 \\이다. 근데 유닉스에서는 /이다. 그렇다면 동적으로 경로구분자를 얻을 수 있어야 한다. File.sparator를 사용하자.
