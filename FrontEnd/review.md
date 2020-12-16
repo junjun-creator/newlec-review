@@ -250,4 +250,26 @@
 - [x] 새로 나온 css 문법
 - object-fit: fill;
   - 이미지를 부모 컨테이너에 꽉 채우기(이미지가 늘어지는것을 감안하고)
-- 
+
+
+## 이벤트 
+- [x] Event Notification(Capturing)과 Event Bubbling이 있다.
+  - ul > li > img 가 있다고 하자. 그리고 ul과 img에 클릭 이벤트가 각각 걸려있다고 하자.
+  - 기본적인 동작은 img를 누르면 Notification 과정에서는 부모의 이벤트가 걸리지 않고 최하단인 img의 이벤트에 클릭이벤트가 걸리고 버블링이 되면서 부모의 클릭이벤트가 동작한다.
+  - 지금은 자식 -> 부모 순이지만 이러한 순서를 뒤집으려면 addEventListener('click', function() {});을 사용해야 한다. 그리고 세 번째 인자에 true를 주면 순서가 바뀐다.
+
+## 이벤트 버블링
+- [x] 이벤트는 부모로 버블링된다.
+  - 부모에 이벤트를 걸고 클릭을 하면 자식에게 걸린다. 자식이 이벤트를 받으면 버블링으로 인해 부모로 이벤트를 전달한다. 
+  - 예를들어 ul > li > img 가 있다고 하자. ul에 클릭 이벤트를 걸고 클릭을 했을 때 다음과 같다.
+    - event.target은 이벤트를 유발하는 객체를 찾는다. (ul)
+    - event.currentTarget은 이벤트를 처리하고 있는 객체를 찾는다. (li)
+  - 그런데 실수로 li를 누를수도 있으니 이를 방지하기 위해 e.target.nodeName != 'IMG'가 아니면 return을 해준다.
+- [x] 이벤트 버블링에 대한 문제와 해결 방법(부모, 자식 간의 서로 다른 이벤트를 각각 갖고 있을 때 발생)
+  - 자식에 e.stopPropagation()을 걸어준다.
+- [x] onclick과 addEventListener('click')의 차이
+  - onclick은 이벤트가 누적된다.
+  - addEventListener는 이벤트가 갱신된다.
+    - 세 번째 인자를 사용할 수 있다. 기본값은 false이다.
+    - 세 번째 인자는 Notification(Capturing)의 순서를 바꿔준다.
+    
