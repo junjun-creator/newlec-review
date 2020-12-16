@@ -272,4 +272,8 @@
   - addEventListener는 이벤트가 갱신된다.
     - 세 번째 인자를 사용할 수 있다. 기본값은 false이다.
     - 세 번째 인자는 Notification(Capturing)의 순서를 바꿔준다.
+## preventDefault
+- [x] a태그를 만들어서 이벤트 타겟을 사용할 경우 a태그의 기본행위(드래그, 링크클릭 등)을 막는 행위
+  - 또는 submit 버튼의 기본 행위를 막는 것
+- [x] 예전에는 return false를 하면 preventDefault행위와 비슷하게 동작을 했다. 근데 이건 너무 옛날이기 때문에 좋지 않다. 
     
