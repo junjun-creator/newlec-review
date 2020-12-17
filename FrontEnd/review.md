@@ -277,7 +277,7 @@
   - 또는 submit 버튼의 기본 행위를 막는 것
 - [x] 예전에는 return false를 하면 preventDefault행위와 비슷하게 동작을 했다. 근데 이건 너무 옛날이기 때문에 좋지 않다. 
     
-## Ajax
+## Ajax(블로그에 남겨놓음)
 - [x] Ajax 순서는 다음과 같다. (동기화일 때)
   - request.open();
   - 세번째 인자는 비동기를 뜻하는데 기본값은 true이다.
@@ -285,4 +285,8 @@
   - reuqest.responseText;
   
 - [x] request.open의 세번째 인자가 true이면 비동기인데 순서대로 실행되지는 않는다.
+  - 비동기는 통지 또는 위임을 해야하는데 자바스크립트에서는 **위임** 방식을 사용한다.
+  - 위임할 때 사용하는 함수 function() { if(request.readyState == 4) ~~ }는 **콜백함수**이다.
+    - 서버로부터 받아온 데이터를 사용할때는 readyState가 3 또는 4일때이다. 3은 데이터가 미완성일 수도 있으므로 4를 사용하는 것이 좋다.
+
 - cross origin ?
