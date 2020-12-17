@@ -277,3 +277,12 @@
   - 또는 submit 버튼의 기본 행위를 막는 것
 - [x] 예전에는 return false를 하면 preventDefault행위와 비슷하게 동작을 했다. 근데 이건 너무 옛날이기 때문에 좋지 않다. 
     
+## Ajax
+- [x] Ajax 순서는 다음과 같다. (동기화일 때)
+  - request.open();
+  - 세번째 인자는 비동기를 뜻하는데 기본값은 true이다.
+  - request.send();
+  - reuqest.responseText;
+  
+- [x] request.open의 세번째 인자가 true이면 비동기인데 순서대로 실행되지는 않는다.
+- cross origin ?
