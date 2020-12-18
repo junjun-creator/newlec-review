@@ -279,6 +279,7 @@
     
 ## Ajax(블로그에 남겨놓음)
 - [x] Ajax 순서는 다음과 같다. (동기화일 때)
+  - var request = XMLHttpRequest();
   - request.open();
   - 세번째 인자는 비동기를 뜻하는데 기본값은 true이다.
   - request.send();
@@ -288,5 +289,7 @@
   - 비동기는 통지 또는 위임을 해야하는데 자바스크립트에서는 **위임** 방식을 사용한다.
   - 위임할 때 사용하는 함수 function() { if(request.readyState == 4) ~~ }는 **콜백함수**이다.
     - 서버로부터 받아온 데이터를 사용할때는 readyState가 3 또는 4일때이다. 3은 데이터가 미완성일 수도 있으므로 4를 사용하는 것이 좋다.
+
+- [x] request.onreadystatechange 말고 request.onload를 쓰면 if문으로 request.readyState를 확인할 필요없이 데이터가 잘 로드된 이후에 콜백함수가 실행된다.
 
 - cross origin ?
