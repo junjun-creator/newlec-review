@@ -112,3 +112,46 @@ var 변수 = function() {
   - replaceChild
   - replaceWith
     - 둘다 엘리먼트를 바꾸는게 아니라 덮어씌우는 것이다.
+
+
+## 이벤트 
+- [x] Event Notification(Capturing)과 Event Bubbling이 있다.
+  - ul > li > img 가 있다고 하자. 그리고 ul과 img에 클릭 이벤트가 각각 걸려있다고 하자.
+  - 기본적인 동작은 img를 누르면 Notification 과정에서는 부모의 이벤트가 걸리지 않고 최하단인 img의 이벤트에 클릭이벤트가 걸리고 버블링이 되면서 부모의 클릭이벤트가 동작한다.
+  - 지금은 자식 -> 부모 순이지만 이러한 순서를 뒤집으려면 addEventListener('click', function() {});을 사용해야 한다. 그리고 세 번째 인자에 true를 주면 순서가 바뀐다.
+
+## 이벤트 버블링
+- [x] 이벤트는 부모로 버블링된다.
+  - 부모에 이벤트를 걸고 클릭을 하면 자식에게 걸린다. 자식이 이벤트를 받으면 버블링으로 인해 부모로 이벤트를 전달한다. 
+  - 예를들어 ul > li > img 가 있다고 하자. ul에 클릭 이벤트를 걸고 클릭을 했을 때 다음과 같다.
+    - event.target은 이벤트를 유발하는 객체를 찾는다. (ul)
+    - event.currentTarget은 이벤트를 처리하고 있는 객체를 찾는다. (li)
+  - 그런데 실수로 li를 누를수도 있으니 이를 방지하기 위해 e.target.nodeName != 'IMG'가 아니면 return을 해준다.
+- [x] 이벤트 버블링에 대한 문제와 해결 방법(부모, 자식 간의 서로 다른 이벤트를 각각 갖고 있을 때 발생)
+  - 자식에 e.stopPropagation()을 걸어준다.
+- [x] onclick과 addEventListener('click')의 차이
+  - onclick은 이벤트가 누적된다.
+  - addEventListener는 이벤트가 갱신된다.
+    - 세 번째 인자를 사용할 수 있다. 기본값은 false이다.
+    - 세 번째 인자는 Notification(Capturing)의 순서를 바꿔준다.
+## preventDefault
+- [x] a태그를 만들어서 이벤트 타겟을 사용할 경우 a태그의 기본행위(드래그, 링크클릭 등)을 막는 행위
+  - 또는 submit 버튼의 기본 행위를 막는 것
+- [x] 예전에는 return false를 하면 preventDefault행위와 비슷하게 동작을 했다. 근데 이건 너무 옛날이기 때문에 좋지 않다. 
+    
+## Ajax(블로그에 남겨놓음)
+- [x] Ajax 순서는 다음과 같다. (동기화일 때)
+  - var request = XMLHttpRequest();
+  - request.open();
+  - 세번째 인자는 비동기를 뜻하는데 기본값은 true이다.
+  - request.send();
+  - reuqest.responseText;
+  
+- [x] request.open의 세번째 인자가 true이면 비동기인데 순서대로 실행되지는 않는다.
+  - 비동기는 통지 또는 위임을 해야하는데 자바스크립트에서는 **위임** 방식을 사용한다.
+  - 위임할 때 사용하는 함수 function() { if(request.readyState == 4) ~~ }는 **콜백함수**이다.
+    - 서버로부터 받아온 데이터를 사용할때는 readyState가 3 또는 4일때이다. 3은 데이터가 미완성일 수도 있으므로 4를 사용하는 것이 좋다.
+
+- [x] request.onreadystatechange 말고 request.onload를 쓰면 if문으로 request.readyState를 확인할 필요없이 데이터가 잘 로드된 이후에 콜백함수가 실행된다.
+
+- cross origin ?
