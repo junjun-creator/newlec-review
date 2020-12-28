@@ -151,8 +151,8 @@ var 변수 = function() {
 - [x] 이벤트는 부모로 버블링된다.
   - 부모에 이벤트를 걸고 클릭을 하면 자식에게 걸린다. 자식이 이벤트를 받으면 버블링으로 인해 부모로 이벤트를 전달한다. 
   - 예를들어 ul > li > img 가 있다고 하자. ul에 클릭 이벤트를 걸고 클릭을 했을 때 다음과 같다.
-    - event.target은 이벤트를 유발하는 객체를 찾는다. (ul)
-    - event.currentTarget은 이벤트를 처리하고 있는 객체를 찾는다. (li)
+    - event.currentTarget은 이벤트를 유발하는 객체를 찾는다. (ul)
+    - event.target은 이벤트를 처리하고 있는 객체를 찾는다. (li)
   - 그런데 실수로 li를 누를수도 있으니 이를 방지하기 위해 e.target.nodeName != 'IMG'가 아니면 return을 해준다.
 - [x] 이벤트 버블링에 대한 문제와 해결 방법(부모, 자식 간의 서로 다른 이벤트를 각각 갖고 있을 때 발생)
   - 자식에 e.stopPropagation()을 걸어준다.
@@ -182,3 +182,5 @@ var 변수 = function() {
 - [x] request.onreadystatechange 말고 request.onload를 쓰면 if문으로 request.readyState를 확인할 필요없이 데이터가 잘 로드된 이후에 콜백함수가 실행된다.
 
 - cross origin ?
+
+## DOM 이벤트 트리거
