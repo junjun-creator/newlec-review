@@ -131,6 +131,8 @@ var 변수 = function() {
 
 ## 노드 생성, 삭제, 교체
 - [x] 생성
+  - createElementNode
+- [x] 추가
   - append는 appendChild와 다르게 생성까지해주면서 부모에 꽂아준다.
 - [x] 삭제
   - removeChild
@@ -184,3 +186,6 @@ var 변수 = function() {
 - cross origin ?
 
 ## DOM 이벤트 트리거
+
+## Drag and Drop
+- e.x, e.screenX의 차이
