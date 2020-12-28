@@ -8,8 +8,10 @@
 ## Annotation
 - [x] @RestController
   - /api/notice/와 같이 데이터를 가공해서 보낼때 사용되는 컨트롤러
+  - JSON 형식으로 변환하지 않아도 알아서 return할때 변환해준다.
 
 - [x] @Controller
   - 뷰가 사용되는 컨트롤러
+  - JSP를 return하는 경우에만 사용한다.
 
 ## REST(Representational state transfer)
