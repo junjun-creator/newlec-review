@@ -49,7 +49,17 @@ const name = student.name;
 const age = student.age;
 
 // ES6 방식
-const {name, age} = student;
+const {name, age, total = 0} = student; // 'jaehee', 26, 0
+
+// 도중에 name, age가 바뀐다면? 괄호를 감싸주자!
+student.name = 'minsu';
+student.age = 30;
+
+({name, age} = student); // 'minsu', 30
+
+// 별칭도 가능하다.
+let {name: studentName, age: studentAge} = student;
+console.log(`name: ${studentName}, age: ${studentAge}`); // 'jaehee', 26
 
 //==================== 배열 ===================
 const animals = ['dog', 'cat'];
