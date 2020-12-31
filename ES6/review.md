@@ -72,6 +72,7 @@ const cat = animals[1];
 const [dog, cat] = animals;
 ```
 
+## Collections
 
 
 
