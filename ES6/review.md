@@ -94,4 +94,57 @@ print(nums); 이렇게 넘길 수 없다.
 print(nums[0], nums[1], nums[2]); 이렇게 넘기는 것보다 print(...nums); 이렇게 넘길 수 있다.
 ```
 
+## Default Value
+```javascript
+{
+    console.log('===================Default Value===================');
+    
+    function add(x = 0, y = 0) { // 고수
+        // if (x == null || x == undefined)   // 하수
+            // x = 0;
+
+        // x = x || 0;          // 중수
+        // y = y || 0;
+
+        return x + y;
+
+        //let temp = 3 || null; --> 3
+        //let temp = undefined || 0 || null || 3;  --> 3
+
+        // console.log(temp);
+    }
+
+
+    function getValue() {
+        return 20;
+    }
+
+    function add2(x = 1, y = getValue()) {
+        return x + y;
+    }
+
+    console.log(add()); // 0
+    console.log(add2()); // 21
+}
+```
+
+
+## Arrow Function
+- [x] 화살표 함수가 필요한 이유는?!
+  - No this, No arguments, No super, No new.target !!!
+  - 일반적인 function은 지역화가 가능하지만, 화살표 함수는 지역화가 없다.
+  
+```javascript
+{
+    window.addEventListener("load", () => {
+        console.log("loaded");
+    });
+
+    let nums = [13, 23, 3, 5, 19, 45];
+
+    nums.sort(function(x, y) {return x - y});   // 오름차순( [3, 5, 13, 19, 23, 45] )
+    nums.sort((x, y) => x - y);                 // 오름차순( [3, 5, 13, 19, 23, 45] )
+}
+```
+
 
