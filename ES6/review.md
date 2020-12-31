@@ -26,15 +26,6 @@ let exam = {
 }
 ```
 
-## Spread Syntax
-- [x] 배열을 쉽게 복사할 수 있다.
-```javascript
-let array1 = [1, 2, 3, 4, 5, 6, 7, 8];
-let array2 = [...array1];            // [1, 2, 3, 4, 5, 6, 7, 8]
-let array3 = [...array1, 9, 10];     // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-let array4 = [...array1, ...array2]; // [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
-```
-
 ## Destructuring Assignment
 - [x] 객체, 배열을 쉽게 할당할 수 있다.
 ```javascript
@@ -73,11 +64,34 @@ const [dog, cat] = animals;
 ```
 
 ## Collections
+Set, Map
 
 
+## REST Parameter
+- [x] 자바스크립트에서 함수의 매개변수는 별칭이다.
+  - 함수에 전달되는 값은 arguments라는 컬렉션이 받는다.
+- [x] function print(x, y, ...values) { }
 
 
+## Spread Operator
+- [x] 배열을 쉽게 복사할 수 있다.
+```javascript
+let array1 = [1, 2, 3, 4, 5, 6, 7, 8];
+let array2 = [...array1];            // [1, 2, 3, 4, 5, 6, 7, 8]
+let array3 = [...array1, 9, 10];     // [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+let array4 = [...array1, ...array2]; // [1, 2, 3, 4, 5, 6, 7, 8, 1, 2, 3, 4, 5, 6, 7, 8];
+```
+- [x] 함수를 호출할 때 대신 뽀개기를 해준다.
+```javascript
+function print(x, y, z) {
+    console.log(x);
+    console.log(y);
+    console.log(z);
+}
 
-
+let nums = [2, 4, 5];
+print(nums); 이렇게 넘길 수 없다.
+print(nums[0], nums[1], nums[2]); 이렇게 넘기는 것보다 print(...nums); 이렇게 넘길 수 있다.
+```
 
 
