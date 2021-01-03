@@ -70,7 +70,15 @@ Set, Map
 ## REST Parameter
 - [x] 자바스크립트에서 함수의 매개변수는 별칭이다.
   - 함수에 전달되는 값은 arguments라는 컬렉션이 받는다.
-- [x] function print(x, y, ...values) { }
+```javascript
+function print(x, y, ...rest) {
+    console.log(x);
+    console.log(y);
+    console.log(rest);
+    console.log(rest.length);
+}
+print(1, 2, 3, 4, 5, 6);
+```
 
 
 ## Spread Operator
