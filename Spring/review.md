@@ -15,3 +15,12 @@
   - JSP를 return하는 경우에만 사용한다.
 
 ## REST(Representational state transfer)
+
+## IoC
+- [x] 객체가 만들어지는 순서는 상관이 없지만, 객체가 조립되어지는 방향ㅇ
+스프링은 객체 생성과 인젝션을 도와준다.
+
+## DI
+- [x] 데이터의 결합관계를 설정의 변경으로 
+- [x] 부품을 조립하는 용어를 Dependency Injection(DI)라 한다.
+  - 설정만 바꾸면 다른 객체로 바꿔 끼
