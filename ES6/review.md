@@ -155,4 +155,51 @@ print(nums[0], nums[1], nums[2]); 이렇게 넘기는 것보다 print(...nums); 
 }
 ```
 
+## OOP
+- [x] class 키워드로 객체를 생성하면 비교 가능하다.(같은 형식인지)
+- [x] function 키워드로 객체를 생성하면 비교가 불가능하다.
+```javascript
+// 구버전 방식
+function Exam(kor, eng, math) {
+    this.kor = kor;
+    this.eng = eng;
+    this.math = math;
 
+    this.total = function() {
+        return this.kor + this.eng + this.math;
+    }
+}
+
+var exam = new Exam(10, 10, 10);
+var exam1 = new Exam(20, 20, 20);
+
+console.log(typeof exam); // object
+console.log(`total is ${exam.total()}`); // 30
+console.log(exam.total === exam1.total); // === : 참조하고 있는 대상이 같은지 비교 (false출력)
+```
+```javascript
+// 구버전 방식
+function Exam(kor, eng, math) {
+    this.kor = kor;
+    this.eng = eng;
+    this.math = math;
+}
+
+// 이것도 가능하고
+Exam.prototype.total = function() {
+    return this.kor + this.eng + this.math;
+}
+
+// 이것도 가능하다.
+Exam.prototype = {
+    total: function() {
+        return this.kor + this.eng + this.math;
+    }
+}
+
+var exam = new Exam(10, 10, 10);
+var exam1 = new Exam(20, 20, 20);
+
+console.log(exam.total === exam1.total); // true출력
+```
+- [x] 위 내용의 문제점은 private 키워드가 존재하지 않기 때문에 캡슐화가 되지 않았다.
