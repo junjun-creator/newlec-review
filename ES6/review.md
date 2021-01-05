@@ -204,6 +204,90 @@ console.log(exam.total === exam1.total); // true출력
 ```
 - [x] 위 내용의 문제점은 private 키워드가 존재하지 않기 때문에 캡슐화가 되지 않았다.
 
+- [x] 클래스를 사용한 예시
+```javascript
+// 새로운 클래스 정의
+{
+    console.log('================새로운 OOP 방식===============');
+    class Exam {
+        // private으로 사용할 키워드는 미리 선언해야 한다.
+        #kor; 
+        #eng;
+        #math;
+        static count = 0;
+
+        constructor(kor = 0, eng = 0, math = 0) {
+            this.#kor = kor;
+            this.#eng = eng;
+            this.#math = math;
+
+            Exam.count++;
+        }
+
+        get count() {
+            return Exam.count;
+        }
+
+        get kor() {
+            return this.#kor;
+        }
+
+        set kor(v) {
+            this.#kor = v;
+        }
+
+        get eng() {
+            return this.#eng;
+        }
+
+        set eng(v) {
+            this.#eng = v;
+        }
+
+        get math() {
+            return this.#math;
+        }
+
+        set math(v) {
+            this.#math = v;
+        }
+
+        #tot() {
+            return 10000000;
+        }
+
+        total() {
+            return this.#kor + this.#eng + this.#math;
+        }
+    }
+
+    Exam.count = 30;
+
+    var exam = new Exam(10, 10, 10);
+    //exam.#kor = 100; // 에러난다
+    console.log(`kor: ${exam.kor}`); // getter 사용
+    exam.kor = 100; // setter 사용
+    console.log(`kor: ${exam.kor}`); // getter 사용
+    console.log(exam.total());
+
+
+    // 상속
+    class NewlecExam extends Exam {
+        #com;
+        constructor(kor, eng, math, com) {
+            super(kor, eng, math);
+            this.#com = com;
+        }
+    }
+
+    let exam2 = new NewlecExam(1, 1, 1, 1);
+    console.log(`exam2.kor: ${exam2.kor}`);
+    console.log(`exam2.total: ${exam2.total()}`);
+
+
+    console.log('');
+}
+```
 
 ## apply, call, new.target
 - [x] apply는 객체만 전달
