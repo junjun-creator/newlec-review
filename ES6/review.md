@@ -203,3 +203,37 @@ var exam1 = new Exam(20, 20, 20);
 console.log(exam.total === exam1.total); // true출력
 ```
 - [x] 위 내용의 문제점은 private 키워드가 존재하지 않기 때문에 캡슐화가 되지 않았다.
+
+
+## apply, call
+- [x] apply는 객체만 전달
+- [x] call은 객체와 매개변수도 전달
+  - call은 쌩둥맞은 객체를 넘겨서 전달해도 출력이 잘된다. 이는 버그를 유발할 수도 있으며 이를 방지하기 위해서 instanceof를 사용한다.
+
+## new.target
+- [x] new.target을 출력했을 때 true가 나오면 해당 객체는 new 연산자로 만들어진 것이다. false라면 해당 객체는 new로 만들어지지 않았다.(버그를 유발할 수 있음)
+  - static / instance(instanceof) / constructor(new.target) 
+  
+
+## Iterator & Generator
+```javascript
+// iterator를 너희는 한 줄의 코드도 없이 구현하게 해주겠다. 나의 이름은 제너레이터.
+// Generator : iterator를 구현해주는 기능, 도구 (function *)
+    
+let data = [20, 10, 23, 4, 45, 6];
+
+// 제너레이터로 이터레이터를 구현하는 예제
+function *iterator() {
+    for (let i = 0; i < data.length; i++)
+        yield data[i];
+}
+
+let it = iterator();
+// it.next() : {value: ?, done: ?}
+
+let result = it.next();
+while (!result.done) {
+    console.log(result.value);
+    result = it.next();
+} 
+```
