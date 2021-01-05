@@ -205,15 +205,54 @@ console.log(exam.total === exam1.total); // true출력
 - [x] 위 내용의 문제점은 private 키워드가 존재하지 않기 때문에 캡슐화가 되지 않았다.
 
 
-## apply, call
+## apply, call, new.target
 - [x] apply는 객체만 전달
 - [x] call은 객체와 매개변수도 전달
   - call은 쌩둥맞은 객체를 넘겨서 전달해도 출력이 잘된다. 이는 버그를 유발할 수도 있으며 이를 방지하기 위해서 instanceof를 사용한다.
-
-## new.target
 - [x] new.target을 출력했을 때 true가 나오면 해당 객체는 new 연산자로 만들어진 것이다. false라면 해당 객체는 new로 만들어지지 않았다.(버그를 유발할 수 있음)
   - static / instance(instanceof) / constructor(new.target) 
-  
+```javascript
+function Alert(selector) { // 객체니까 그냥 호출되면 안된다.
+    this.section = document.querySelector(selector);
+    this.btn1 = this.section.querySelector('input');
+    this.span = this.section.querySelector('div');
+
+    this.btn1.onclick = this.btn1Click;
+    this.x = 30;
+}
+
+Alert.prototype = {
+    btn1Click: function() {
+        //this.span.innerHTML = 'Hello';
+        console.log('aa');
+    },
+    test: function(a, b) {
+        console.log(`x: ${this.x}, a: ${a}`);
+    }
+}
+
+{
+    window.addEventListener('load', function() {
+        let alert = new Alert('.s1');
+        alert.test(3); // x: 30, a: 3
+        let onclick = alert.test; // 함수 위임
+        onclick(3); // 호출 (x: undefined, a: 3)
+        onclick.apply(alert); // x: 30, a: undefined
+        onclick.call(alert, 4); // x: 30, a: 4
+
+        let obj = {x: 1000, y: 3000};
+        onclick.call(obj, 5); // 쌩둥맞은 객체를 인자로 넣어도 작동이 잘된다.
+    });
+}
+{
+    function Exam(kor, eng, math) {
+        console.log(this instanceof Exam);
+        
+        // function의 3가지 종류에 따른 체크 사항과 무기
+        // static / instance(instanceof) / constructor(new.target)
+    }
+}
+```
 
 ## Iterator & Generator
 ```javascript
