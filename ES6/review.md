@@ -360,3 +360,121 @@ while (!result.done) {
     result = it.next();
 } 
 ```
+
+## Symbol
+- [x] 심볼이 만들어진 이유는?
+  - 심볼은 고유값을 만들어낸다. so what?
+    - 자바스크립트는 태생이 다형성이다. 다형성은 일부 코드를 다른 코드로 대체하면 : 함수로 꽂아서
+```javascript
+// ------- Symbol --------
+{
+    console.log('================Symbol===============');
+
+    let print2 = Symbol('print'); // 인자를 비워도되고 써도된다. 설명 느낌?
+
+    class A {
+        constructor() {
+
+        }
+
+        print() {
+            console.log('일반적인 함수의 print');
+        }
+
+        [print2]() {
+            console.log('심볼 함수의 print');
+        }
+    }
+
+    class B {
+        constructor() {
+
+        }
+
+        print() {
+            console.log('일반적인 함수의 print');
+        }
+
+        [print2]() {
+            console.log('심볼 함수의 print');
+        }
+    }
+
+    console.log(A.prototype.print === B.prototype.print); // false (각각의 print함수가 다르므로)
+    console.log(A.prototype.print2 === B.prototype.print2); // true (유니크한 심볼을 참조하고 있으므로)
+```
+- [x] 현재 위의 예시에서는 심볼을 지역변수로 사용하고 있다. 하지만, 심볼은 전역에서도 사용할 수 있다.
+  - Symbol.for()로 선언하면 된다.
+  
+  
+  
+## Promise
+- [x] 자바스크립트에서 비동기 작업의 성공, 실패 여부를 알려준다
+- [x] pending, fulfilled, rejected
+```javascript
+{
+    console.log('================Promise===============');
+
+    // 비동기식2 : promise를 이용한 비동기
+    function getNotice(id) {
+        console.log('promise 비동기식 get 요청이 이루어졌습니다.');
+
+        return new Promise(resolve => {
+            // 3초 후 다음로직을 실행함
+            setTimeout(function() {
+                let notice = {id: 1, title: "title 1", content: "hehe"};
+                resolve(notice);
+                console.log('resolve: ', resolve);
+            }, 3000);
+        });
+        
+    }
+
+    // aa는 promise 객체 {then: ~, catch: ~, 등}가 담긴다. promise state도 담긴다(fulfilled, rejected ...)
+    let aa = getNotice(2); 
+    console.log('aa: ', aa);
+
+    // then에는 콜백함수를 넣어준다. 콜백 지옥을 벗어났으니 보기 깔끔하다.
+    aa.then(function(notice) {
+        console.log(notice.title);
+    });
+
+    console.log('메인스레드는 계속 된다,');
+
+    /*
+    // 비동기식 getNotice 요청
+    function getNotice(id, callback) {
+        console.log('비동기식 get 요청이 이루어졌습니다.');
+
+        // 3초 후 다음로직을 실행함
+        setTimeout(function() {
+            let notice = {id: 1, title: "title 1", content: "hehe"};
+            callback(notice);
+        }, 3000);
+    }
+
+    let notice = getNotice(2, function(notice) {
+        console.log(notice.title); // 결과값을 가져오면 실행한다.
+    });
+
+    console.log('메인스레드는 계속 된다,');
+    */
+
+
+
+    /*
+    // 동기식 getNotice 요청
+    function getNotice(id) {
+        console.log('동기식 get 요청이 이루어졌습니다.');
+
+        return {id: 1, title: "title 1", content: "hehe"};
+    }
+
+    let notice = getNotice(2); // 리턴이 될 때까지 멈춰있는 상태가 된다.(오랜 시간을 먹는 함수라 가정)
+    console.log(notice.title);
+
+    console.log('메인스레드는 계속 된다,');
+    */
+    console.log('');
+}
+```
