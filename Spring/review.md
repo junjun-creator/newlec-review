@@ -34,3 +34,9 @@
 - 그래서 우린 그냥 Model model만 넣어놓고 사용하면 된다.
 
 ## mybatis
+- [x] dao에 직접 구현하는 것과 구현 클래스, xml을 따로 두는 두 가지 방법이 있다.
+  - dao에 직접 구현할 때는 @Mapper를 사용한다. @Select, @Insert, ... , @Results, @Result를 사용한다.
+  - 구현 클래스, xml을 따로 둘 때는 
+- [x] SqlSession
+  - IoC 컨테이너에 마이바티스가 담아놓았다.
+  - Factory한테 매퍼객체 내놓으라고 명령한다.(session.getMapper(~Dao.class)) 그러면 Factory는 모든 맵퍼 객체를 반환한다
