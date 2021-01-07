@@ -478,3 +478,42 @@ while (!result.done) {
     console.log('');
 }
 ```
+
+## module
+- [x] module1.js를 main.js에서 불러서 사용하고 싶다고 가정
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module" src="/ex3-es6.js"></script>
+</head>
+<body>
+
+</body>
+</html>
+```
+```javascript
+//main.js
+import test from './module1.js';
+
+test();
+```
+```javascript
+export default function test() {
+    console.log('module1 test');
+}
+
+export function test1() {
+    console.log('module1 test1');
+}
+
+export function test2() {
+    console.log('module1 test2');
+}
+
+- [x] 위의 예제로만 보면 export가 붙어도 default까지 붙은 것들만 호출할 수 있다.
+
+```
