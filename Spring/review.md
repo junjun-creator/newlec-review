@@ -135,6 +135,16 @@ public String list(Model model,
   - 관점 지향 프로그래밍
   - 사용자, 개발자, 운영자 등의 관점으로 어떻게 분리하고 결합시켜서 프로그래밍을 하는 방법론
   - 곁다리 업무(로깅, 트랜잭션 등)를 별도로 만들고 기존 소스코드를 손대지 않고 필요에 따라 꽂았다 뺐다 할 수 있는 프로그래밍 방식
+- [x] Before Advice
+  - core concern 앞에만 필요한 곁다리 업무
+  - MethodBeforeAdvice 인터페이스를 구현하는 클래스를 만든다.
+- [x] After returnning Advice
+  - core concern 뒤에만 필요한 곁다리 업무
+- [x] After throwing Advice
+  - 예외를 처리하는 곁다리 업무
+- [x] Around
+  - core concern 앞, 뒤 모두에 필요한 곁다리 업무
+  - MethodInterceptor 인터페이스를 구현하는 클래스를 만든다.
 
 
 ## Model(model)이 어떻게 동작되는가
