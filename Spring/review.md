@@ -28,27 +28,31 @@
 
 ## Annotation
 - [x] **@Autowired**
-  - 자동으로 객체를 인젝션한다.
+  - 상황에 맞는 IoC 컨테이너에 들어있는 Bean을 자동으로 주입한다.
   - 스프링 setting xml에 <context:annotation-config/>을 넣어줘야 한다.
   - reuqired=false
     - 인젝션하고자 하는 객체가 없으면 null을 넣는다.
 - [x] **@Qualifier**
     - 인젝션하고자 하는 객체가 두 개 이상인 경우 우선순위를 설정한다.
-
-- [x] **@Component**
-  - 컴포넌트 어노테이션을 통해 객체를 생성할 수 있다.
-  - 스프링 setting xml에 <context:component-scan base-package="루트부터 해당 패키지까지의 경로"/>를 넣어줘야 한다.
-    - 이것을 넣어주면 <context:annotation-config/>은 없어도 된다.
     
 - [x] **@Configuration**
   - 스프링은 xml방식, 어노테이션 방식이 있는데 @Configuration은 어노테이션 방식으로 사용하기 위한 것이다.
+  - 얘는 스프링 IoC 컨테이너에게 해당 클래스를 Bean 구성 클래스임을 알려준다.
     
 - [x] **@ComponentScan("경로")**
-  - 어노테이션 방식으로 생성하고자 하는 객체가 위한 패키지명을 찾는 역할을 한다.
+  - 입력된 패키지 경로에서 @Component(@Service, @Controller, @Repository)를 찾는 역할을 한다.
   - xml방식에서 <context:component-scan base-package="경로"/> 역할과 같다.
     
-- [x] **@Bean**
-  - @Bean을 달면 내가 만든 객체(return하는 객체)를 IoC 컨테이너에 넣어준다.
+- [x] **@Component**(밑에 @Bean과 차이점 알아두기)
+  - @Component를 달아주면 Bean으로 등록되기 위한 클래스(IoC 컨테이너에 저장되기 위한 클래스)를 의미한다.
+  - @Bean과의 차이점은 @Component는 개발자기 직접 작성한 클래스를 Bean으로 등록하기 위한 어노테이션이다.
+  - 스프링 setting xml에 <context:component-scan base-package="루트부터 해당 패키지까지의 경로"/>를 넣어줘야 한다.
+    - 이것을 넣어주면 <context:annotation-config/>은 없어도 된다.
+    
+- [x] **@Bean**(위의 @Component와 차이점 알아두기)
+  - 1.@Bean은 개발자가 직접 제어가 불가능한 외부 라이브러리 등을 Bean으로 만들려할 때 사용된다.
+  - 2.@Bean은 개발자가 작성한 메서드를 통해 반환되는 객체를 Bean으로 만들려할 때 사용된다.
+  - @Bean이 달린 주체는 IoC 컨테이너에 담긴다.
 ```java
 @ComponentScan("spring.di.ui")
 @Configuration
@@ -68,12 +72,18 @@ public class NewlecAppConfig {
 - [x] **@Controller**
   - 뷰가 사용되는 컨트롤러
   - JSP를 return하는 경우에만 사용한다.
+  - @Controller를 달아주면 Bean으로 등록되기 위한 클래스(IoC 컨테이너에 저장되기 위한 클래스)를 의미한다.
+  - @Autowired가 붙어있는애가 @Controller가 붙어있는 클래스를 사용한다.
   
 - [x] **@Service**
   - 서비스 클래스에 붙이는 어노테이션
+  - @Service를 달아주면 Bean으로 등록되기 위한 클래스(IoC 컨테이너에 저장되기 위한 클래스)를 의미한다.
+  - @Autowired가 붙어있는애가 @Service가 붙어있는 클래스를 사용한다.
   
 - [x] **@Repository**
   - Dao를 실제로 구현하는 클래스에 붙이는 어노테이션
+  - @Repository를 달아주면 Bean으로 등록되기 위한 클래스(IoC 컨테이너에 저장되기 위한 클래스)를 의미한다.
+  - @Autowired가 붙어있는애가 @Repository가 붙어있는 클래스를 사용한다.
 
 - [x] **@RequestMapping**
   - 사용자가 입력하는 url을 매핑시켜주는 어노테이션
@@ -120,7 +130,11 @@ public String list(Model model,
     @Result()~~
 })
 ```
-
+## AOP(Aspect Oriented Programming)
+- [x] AOP이란?
+  - 관점 지향 프로그래밍
+  - 사용자, 개발자, 운영자 등의 관점으로 어떻게 분리하고 결합시켜서 프로그래밍을 하는 방법론
+  - 곁다리 업무(로깅, 트랜잭션 등)를 별도로 만들고 기존 소스코드를 손대지 않고 필요에 따라 꽂았다 뺐다 할 수 있는 프로그래밍 방식
 
 
 ## Model(model)이 어떻게 동작되는가
