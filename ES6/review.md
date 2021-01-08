@@ -514,6 +514,10 @@ export function test2() {
     console.log('module1 test2');
 }
 
-- [x] 위의 예제로만 보면 export가 붙어도 default까지 붙은 것들만 호출할 수 있다.
+- [x] 위의 예제로만 보면 export가 붙어도 default까지 붙은 것들만 호출할 수 있다. 
+```javascript
+export default test1();
+export test2(); 와 같이 밑에다 한 번에 쓸 수도 있다.
+```
 
 ```
