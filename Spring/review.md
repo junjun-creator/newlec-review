@@ -21,6 +21,17 @@
 - [x] 부품을 조립하는 용어를 Dependency Injection(DI)라 한다.
   - 설정만 바꾸면 다른 객체로 바꿔 끼
   
+## 스프링에서 말하는 Bean 객체란?
+```java
+@Autowired
+    ApplicationContext applicationContext;
+
+public void example() {
+    A a = new A();  // Bean 객체가 아니라 일반적인 객체이다.
+    A a = applicationContext.getBean(A.class); // Bean 객체이다.
+}
+```
+  
 ## IoC(Inversion of Control)
 - [x] IoC란?
   - 역순으로 객체를 생성하는 것?
@@ -32,22 +43,30 @@
   - 스프링 setting xml에 <context:annotation-config/>을 넣어줘야 한다.
   - reuqired=false
     - 인젝션하고자 하는 객체가 없으면 null을 넣는다.
+  - [x] @Autowired를 생성자에다 붙이기 (Constructor Injection)
+    - 스프링 레퍼런스에서 가장 권장하는 방법이다. 필수적으로 사용해야하는 레퍼런스 없이는 해당 인스턴스를 만들 수 없도록 강제할 수 있기 때문이다. 나머지 아래의 방법은 인위적으로 해당 인스턴스를 만들 수 있다.
+    - ※ 스프링 4.3부터 어떠한 클래스에 생성자가 딱 하나 뿐이고 그 생성자로 주입받는 레퍼런스 변수들이 Bean으로 등록되어 있다면 그 Bean을 자동으로 주입하도록 기능이 추가되었다. 따라서 @Autowired를 붙이지 않아도 위의 경우에는 동작한다.
+  - [x] @Autowired를 필드에 붙이기 (Field Injection)
+  - [x] @Autowired를 Setter에 붙이기 (Setter Injection)
+    
+    
 - [x] **@Qualifier**
     - 인젝션하고자 하는 객체가 두 개 이상인 경우 우선순위를 설정한다.
     
-- [x] **@Configuration**
-  - 스프링은 xml방식, 어노테이션 방식이 있는데 @Configuration은 어노테이션 방식으로 사용하기 위한 것이다.
-  - 얘는 스프링 IoC 컨테이너에게 해당 클래스를 Bean 구성 클래스임을 알려준다.
-    
 - [x] **@ComponentScan("경로")**
-  - 입력된 패키지 경로에서 @Component(@Service, @Controller, @Repository)를 찾는 역할을 한다.
+  - 입력된 패키지 경로에서 @Component(@Service, @Controller, @Repository, @Configuration)를 찾아 bean 객체로 등록해주는 역할을 한다.
   - xml방식에서 <context:component-scan base-package="경로"/> 역할과 같다.
     
 - [x] **@Component**(밑에 @Bean과 차이점 알아두기)
   - @Component를 달아주면 Bean으로 등록되기 위한 클래스(IoC 컨테이너에 저장되기 위한 클래스)를 의미한다.
-  - @Bean과의 차이점은 @Component는 개발자기 직접 작성한 클래스를 Bean으로 등록하기 위한 어노테이션이다.
+  - @Bean과의 차이점은 @Component는 개발자 직접 작성한 클래스를 Bean으로 등록하기 위한 어노테이션이다.
   - 스프링 setting xml에 <context:component-scan base-package="루트부터 해당 패키지까지의 경로"/>를 넣어줘야 한다.
     - 이것을 넣어주면 <context:annotation-config/>은 없어도 된다.
+    
+- [x] **@Configuration**
+  - 스프링은 xml방식, 어노테이션 방식이 있는데 @Configuration은 어노테이션 방식으로 사용하기 위한 것이다.
+  - 얘는 스프링 IoC 컨테이너에게 해당 클래스를 Bean 구성 클래스임을 알려준다.
+  - @Configuration도 @Component이기 때문에 @ComponentScan에 의해 스캔되어 @Bean으로 정의한 객체들이 IoC컨테이너 안에 담긴다.
     
 - [x] **@Bean**(위의 @Component와 차이점 알아두기)
   - 1.@Bean은 개발자가 직접 제어가 불가능한 외부 라이브러리 등을 Bean으로 만들려할 때 사용된다.
