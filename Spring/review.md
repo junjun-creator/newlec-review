@@ -134,17 +134,30 @@ public String list(Model model,
 - [x] AOP이란?
   - 관점 지향 프로그래밍
   - 사용자, 개발자, 운영자 등의 관점으로 어떻게 분리하고 결합시켜서 프로그래밍을 하는 방법론
-  - 곁다리 업무(로깅, 트랜잭션 등)를 별도로 만들고 기존 소스코드를 손대지 않고 필요에 따라 꽂았다 뺐다 할 수 있는 프로그래밍 방식
-- [x] Before Advice
-  - core concern 앞에만 필요한 곁다리 업무
-  - MethodBeforeAdvice 인터페이스를 구현하는 클래스를 만든다.
-- [x] After returnning Advice
-  - core concern 뒤에만 필요한 곁다리 업무
-- [x] After throwing Advice
-  - 예외를 처리하는 곁다리 업무
-- [x] Around
-  - core concern 앞, 뒤 모두에 필요한 곁다리 업무
-  - MethodInterceptor 인터페이스를 구현하는 클래스를 만든다.
+  - 비즈니스 로직 = 주업무, 인프라 로직 = 곁다리 업무
+  - 인프라 로직(로깅, 트랜잭션 등)을 별도로 만들고 기존 소스코드를 손대지 않고 필요에 따라 꽂았다 뺐다 할 수 있는 프로그래밍 방식
+- [x] **Before Advice**
+  - core concern 앞에만 필요한 인프라 로직
+  - MethodBeforeAdvice 인터페이스를 구현하는 클래스를 만들어서 처리한다.
+- [x] **After returnning Advice**
+  - core concern 뒤에만 필요한 인프라 로직
+  - AfterReturningAdvice 인터페이스를 구현하는 클래스를 만들어서 처리한다.
+- [x] **After throwing Advice**
+  - 예외를 처리하는 인프라 로직
+  - ThrowsAdvice 인터페이스를 구현하는 클래스를 만들어서 처리한다.
+- [x] **Around**
+  - core concern 앞, 뒤 모두에 필요한 인프라 로직
+  - MethodInterceptor 인터페이스를 구현하는 클래스를 만들어서 처리한다.
+
+- [x] **Weaving**
+  - Cross-cutting Concern이랑 Core Concern부분을 연결(뜨개질)시켜주는 과정
+
+- [x] **JoinPoint**
+  - 인프라 로직이 대상으로 삼고 있는 메서드를 조인 포인트라 한다.
+  
+- [x] **Point Cut**
+  - 조인 포인트를 컷 하는 것
+  - 특정한 메서드만 위빙하기 위해 설정할 수 있는 별도의 정보
 
 
 ## Model(model)이 어떻게 동작되는가
