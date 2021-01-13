@@ -184,3 +184,32 @@
   - 같은 것은 사라지고 다른 것만 출력된다. (첫 번째꺼가 기준임)
 - [x] INTERSECT(교집합)
   - 같은 것만 출력한다.
+  
+  
+## MySQL - limit, offset
+  - [x] limit
+    - order by 절 앞에 where절을 쓸 필요가 없다.
+    - order by regdate desc limit 10;  
+  - [x] offset
+    - 페이징할 때 
+    
+```mysql
+select * from NoticeView
+order by regdate desc
+limit 10 offset 10;
+```
+
+## mysql 소대문자 가리기
+- [x] BINARY를 앞에 쓰면 소대문자를 가린다.
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
