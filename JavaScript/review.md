@@ -183,9 +183,6 @@ var 변수 = function() {
 
 - [x] request.onreadystatechange 말고 request.onload를 쓰면 if문으로 request.readyState를 확인할 필요없이 데이터가 잘 로드된 이후에 콜백함수가 실행된다.
 
-- cross origin ?
-
 ## DOM 이벤트 트리거
 
-## Drag and Drop
-- e.x, e.screenX의 차이
+## 
