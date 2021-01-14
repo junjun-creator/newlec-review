@@ -149,6 +149,9 @@ public String list(Model model,
     @Result()~~
 })
 ```
+- [x] **@RequestBody**
+  - @Controller를 사용하면서 뷰 페이지 단에 보내는 것이 아닌 그 자체를 넘겨줄 때 해당 메서드에 붙이는 어노테이션
+  
 ## AOP(Aspect Oriented Programming)
 - [x] AOP이란?
   - 관점 지향 프로그래밍
