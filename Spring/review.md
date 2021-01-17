@@ -192,6 +192,11 @@ public String list(Model model,
 - [x] dao에 직접 구현하는 것과 구현 클래스, xml을 따로 두는 두 가지 방법이 있다.
   - dao에 직접 구현할 때는 @Mapper를 사용한다. @Select, @Insert, ... , @Results, @Result를 사용한다.
   - 구현 클래스, xml을 따로 둘 때는 
-- [x] SqlSession
-  - IoC 컨테이너에 마이바티스가 담아놓았다.
+- [x] SqlSession 클래스
+  - sql문을 실제 호출해주는 역할(필요할 때 open하고 close해줘야 함)
+  - 스프링에서는 mybatis가 SqlSession을 빈으로 등록하고 유지한다.
   - Factory한테 매퍼객체 내놓으라고 명령한다.(session.getMapper(~Dao.class)) 그러면 Factory는 모든 맵퍼 객체를 반환한다
+- [x] SqlSessionFactoryBuilder 클래스
+  - 설정파일을 읽어서 SqlSessionFactory 객체를 생성한다.
+- [x] SqlSessionFactoryFactory 클래스
+  - SqlSession을 만드는 역할
