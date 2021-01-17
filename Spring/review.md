@@ -86,7 +86,8 @@ public class NewlecAppConfig {
 
 - [x] **@RestController**
   - /api/notice/와 같이 데이터를 가공해서 보낼때 사용되는 컨트롤러
-  - JSON 형식으로 변환하지 않아도 알아서 return할때 변환해준다.
+  - @ResponseBody를 사용하지 않아도 문자열을 리턴하면 그대로 문자열을 리턴한다. 뷰랑 연관짓는 것이 아니다.
+  - 문자열을 JSON 형식으로 변환을 해주기도 하는데 이는 MessageConverter가 내장되어서 그렇다. annotation-driven 태그에 utf-8을 지원하는 컨버터가 있는데 그 위치에 JSON 변환 컨버터가 미리 추가되어 있기 때문이다.
 
 - [x] **@Controller**
   - 뷰가 사용되는 컨트롤러
@@ -151,6 +152,7 @@ public String list(Model model,
 ```
 - [x] **@RequestBody**
   - @Controller를 사용하면서 뷰 페이지 단에 보내는 것이 아닌 그 자체를 넘겨줄 때 해당 메서드에 붙이는 어노테이션
+  - @RestController를 사용하면 @RequestBody를 붙이지 않아도 return 값이 문자열이면 그대로 문자열을 출력한다. 뷰랑 연결되지 않는다.
   
 ## AOP(Aspect Oriented Programming)
 - [x] AOP이란?
