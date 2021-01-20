@@ -1,9 +1,6 @@
 ## Virtual DOM
 - [x] 변화가 일어나면 실제로 브라우저의 돔에 새로운 것을 넣는 것이 아니라 자바스크립트로 이루어진 가상의 돔에 한 번 렌더링을 하고 기존의 돔과 비교한 이후 정말 변화가 필요한 부분만 업데이트를 해준다.
 
-## ES6와 Babel의 차이
-- [x] 
-
 ## HTML과 JSX의 차이
 - [x] JSX는 태그가 두 개이면 반드시 하나의 태그로 감싸주어야 한다. 즉, 하나의 최상위 부모가 꼭 존재해야 한다.
   - 그런데 최상위 부모가 존재하면 개발자도구로 볼 때 불필요하게 최상위 부모태그가 나오니 보기 안좋다. 이를 해결하기 위해 리액트 v16.2부터는 <Fragment> 태그를 사용할 수 있다.
@@ -20,6 +17,8 @@ const element = (
     <div>
         <h1>Hello, World!</h1>
         <h2>It is {new Date().toLocaleTimeString()}.</h2>
+        <input type="text" className="width" value={this.state.변수} /> // 클래스는 className, value에는 큰 따옴표를 제거해야 한다.
+        <img style={{width: "100px"}} src="../../images/logo.png" />
     </div>
 );
 
